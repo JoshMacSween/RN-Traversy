@@ -2,20 +2,19 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {
-  faCoffee,
-  faBeer,
-  faCircle,
-  faCheck,
-  faTrash,
-} from '@fortawesome/free-solid-svg-icons';
+import {faTimes} from '@fortawesome/free-solid-svg-icons';
 
-const ListItem = ({item}) => {
+const ListItem = ({item, deleteItem}) => {
   return (
     <TouchableOpacity style={styles.listItem}>
       <View style={styles.listItemView}>
         <Text style={styles.listItemText}>{item.text}</Text>
-        <FontAwesomeIcon size={20} color="firebrick" icon={faTrash} />
+        <FontAwesomeIcon
+          onPress={() => deleteItem(item.id)}
+          size={20}
+          color="firebrick"
+          icon={faTimes}
+        />
       </View>
     </TouchableOpacity>
   );
